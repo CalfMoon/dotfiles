@@ -1,0 +1,11 @@
+[General]
+clipboardGroup=PostScreenshotCopyImage
+onLaunchAction=DoNotTakeScreenshot
+rememberLastRectangularRegion=Never
+
+[GuiConfig]
+captureDelay=5
+window-position=532,310
+
+[Save]
+lastSaveLocation=file:///home/CalfMoon/Pictures/Screenshot_20230127_213616.png

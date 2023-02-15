@@ -1,0 +1,60 @@
+window:
+  padding:
+    x: 0
+    y: 0
+  class:
+    instance: Alacritty
+    general: Alacritty
+  opacity: 1
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+
+font:
+  normal:
+    family: JetBrains Mono Nerd Font
+    style:  Medium
+  bold:
+    family: JetBrains Mono Nerd Font
+    style:  Bold
+  italic:
+    family: JetBrains Mono Nerd Font
+    style:  MediumItalic
+  bold_italic:
+    family: JetBrains Mono Nerd Font
+    style: BoldItalic
+  size: 11
+  draw_bold_text_with_bright_colors: true
+
+colors:
+  primary:
+    background: "#191830"
+    foreground: "#d6c7f1"
+
+  cursor:
+    text: "#1E1E3F"
+    cursor: "#FAD000"
+
+  normal:
+    black: "#000000"
+    red: "#ff0000"
+    green: "#00ff00"
+    yellow: "#ffff00"
+    blue: "#0000dd"
+    magenta: "#ff00ff"
+    cyan: "#00ffff"
+    white: "#ffffff"
+
+  # Bright colors
+  bright:
+    black:   '#555555'
+    red:     '#ff4444'
+    green:   '#66ff66'
+    yellow:  '#ffff99'
+    blue:    '#4444ff'
+    magenta: '#ff55ff'
+    cyan:    '#77ffff'
+    white:   '#dddddd'
+

@@ -31,11 +31,12 @@ font:
 colors:
   primary:
     background: "#191830"
-    foreground: "#d6c7f1"
+    foreground: "#FFFFFF"
 
   cursor:
     text: "#1E1E3F"
     cursor: "#FAD000"
+
 
   normal:
     black: "#000000"
@@ -57,4 +58,3 @@ colors:
     magenta: '#ff55ff'
     cyan:    '#77ffff'
     white:   '#dddddd'
-

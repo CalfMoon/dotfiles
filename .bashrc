@@ -9,7 +9,7 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias mnt='udisksctl mount -b'
 alias umnt='udisksctl unmount -b'
 alias ls='exa -al --color=always --group-directories-first'
-alias emacs='emacs -nw'
+#alias emacs='emacs -nw'
 alias ..='cd ..'
 alias ...='cd ../..'
 

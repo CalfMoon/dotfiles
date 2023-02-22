@@ -3,7 +3,7 @@ clipboardGroup=PostScreenshotCopyImage
 onLaunchAction=DoNotTakeScreenshot
 
 [GuiConfig]
-window-position=540,390
+window-position=530,290
 
 [Save]
 lastSaveLocation=file:///home/CalfMoon/Pictures/Screenshot_20230220_203138.png

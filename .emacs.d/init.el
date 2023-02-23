@@ -1,5 +1,6 @@
 ;; set up package.el to work with MELPA
 (require 'package)
+(require 'install)
 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
@@ -9,15 +10,18 @@
 (package-refresh-contents)
 
 ;; Enable Evil aka vim keybindings
-(require 'evil)
-(evil-mode 1)
-
-;; Download general.el
-(unless (package-installed-p 'general)
-  (package-install 'general))
+  (use-package evil
+    :init
+    (progn
+      (setq evil-undo-system 'undo-tree)
+      (setq evil-want-keybinding nil)
+      )
+    :config
+    (progn
+      (evil-mode 1)))
 
 ;; Enable general.el
-(require 'general)
+(use-package general)
 (general-evil-setup)
 
 ;; Now Usable `jk` Is possible!
@@ -26,17 +30,53 @@
     :timeout 0.25
     "k" 'evil-normal-state))
 
-;; for custon theming
-(require 'autothemer)
-(load-theme 'hallo t)
-
 ;; for better html suppot such as . for class and # for id and > for child
-(require 'emmet-mode)
+(use-package emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
+(use-package lsp-mode
+  :commands(lsp lsp-deferred)
+  :init(setq lsp-keymap-prefix "C-c l"))
+
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
+
+
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :init
+  (evil-collection-init))
+
+;; For Custon theming
+(use-package autothemer)
+(load-theme 'neon t)
+
+
+;; for brackets colors
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(custom-set-faces
+ '(js2-object-property ((t (:inherit font-lock-variable-name-face))))
+
 ;; auto end bracket
 (electric-pair-mode 1)
+
+;; hide different menus
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -45,8 +85,10 @@
  ;; If there is more than one, they won't work right.
  '(Custom-safe-themes
    '("6c71a6437c3edf3fb28156ea83dbcf752fef19590fc1bfc919b0a53935f265d2" "dde643b0efb339c0de5645a2bc2e8b4176976d5298065b8e6ca45bc4ddf188b7" default))
+ '(custom-safe-themes
+   '("70abf20e1f2ae8280c02142130c5463787199e5f54e8d5c2cc739bf2d833c0a5" "c464ed2a5962538a8213945c88360d32b1e9bfe4b076b62fc4a5b9a4067cb0c2" "6c71a6437c3edf3fb28156ea83dbcf752fef19590fc1bfc919b0a53935f265d2" default))
  '(package-selected-packages
-   '(prettier emmet-mode js2-mode impatient-mode ## autothemer shades-of-purple-theme modus-themes use-package undo-fu general evil-collection)))
+   '(magit projectile rainbow-delimiters company lsp-mode prettier emmet-mode js2-mode ## autothemer modus-themes use-package undo-fu general evil-collection)))
 
 ;; adding line numbers
 (global-display-line-numbers-mode 1)

@@ -188,6 +188,6 @@ exec_always --no-startup-id exec autotiling &
 exec_always --no-startup-id exec picom &
 exec_always --no-startup-id exec udiskie &
 exec_always --no-startup-id exec emacs --daemon &
-# exec_always --no-startup-id exec buckle &
+#exec_always --no-startup-id exec buckle &
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
